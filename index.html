@@ -546,6 +546,82 @@ section{
         font-size:55px;
     }
 }
+    /* =========================
+   LINK GENERATOR
+========================= */
+
+.link-generator {
+    padding: 70px 20px;
+    background: #eee9e1;
+    text-align: center;
+}
+
+.generator-box {
+    max-width: 600px;
+    margin: auto;
+    padding: 40px 30px;
+    background: #f8f5ef;
+    border: 1px solid #d8d0c5;
+}
+
+.generator-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.generator-subtitle {
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+#namaTamuInput {
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    border: 1px solid #cfc7bc;
+    background: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+#generateLink,
+#copyLink {
+    padding: 13px 24px;
+    border: 1px solid #555;
+    background: #4b453e;
+    color: white;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+#generateLink:hover,
+#copyLink:hover {
+    opacity: 0.85;
+}
+
+.hasil-link {
+    display: none;
+    margin-top: 25px;
+}
+
+#linkTamu {
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    border: 1px solid #cfc7bc;
+    background: white;
+    font-size: 13px;
+    box-sizing: border-box;
+}
+
+#pesanCopy {
+    font-size: 13px;
+    margin-top: 12px;
+}
 </style>
 </head>
 
@@ -1140,6 +1216,93 @@ const namaTamu = params.get('to');
 if (namaTamu) {
     document.getElementById('guestName').textContent = namaTamu;
 }
+    // =========================
+// LINK GENERATOR
+// =========================
+
+const namaTamuInput = document.getElementById('namaTamuInput');
+const generateLink = document.getElementById('generateLink');
+const hasilLink = document.getElementById('hasilLink');
+const linkTamu = document.getElementById('linkTamu');
+const copyLink = document.getElementById('copyLink');
+const pesanCopy = document.getElementById('pesanCopy');
+
+generateLink.addEventListener('click', function () {
+
+    const nama = namaTamuInput.value.trim();
+
+    if (nama === '') {
+        alert('Silakan masukkan nama tamu terlebih dahulu.');
+        return;
+    }
+
+    const linkWebsite = window.location.origin + window.location.pathname;
+
+    const linkPribadi =
+        linkWebsite + '?to=' + encodeURIComponent(nama);
+
+    linkTamu.value = linkPribadi;
+
+    hasilLink.style.display = 'block';
+
+    pesanCopy.textContent = '';
+});
+
+
+copyLink.addEventListener('click', function () {
+
+    linkTamu.select();
+    linkTamu.setSelectionRange(0, 99999);
+
+    navigator.clipboard.writeText(linkTamu.value)
+        .then(function () {
+
+            pesanCopy.textContent =
+                '✓ Link berhasil disalin.';
+
+        })
+        .catch(function () {
+
+            document.execCommand('copy');
+
+            pesanCopy.textContent =
+                '✓ Link berhasil disalin.';
+        });
+
+});
 </script>
+    <!-- LINK GENERATOR -->
+<section class="link-generator">
+    <div class="generator-box">
+        <div class="generator-title">Buat Link Undangan</div>
+        <p class="generator-subtitle">
+            Masukkan nama tamu untuk membuat link undangan pribadi.
+        </p>
+
+        <input
+            type="text"
+            id="namaTamuInput"
+            placeholder="Contoh: Bapak Andi"
+        >
+
+        <button type="button" id="generateLink">
+            Buat Link
+        </button>
+
+        <div id="hasilLink" class="hasil-link">
+            <input
+                type="text"
+                id="linkTamu"
+                readonly
+            >
+
+            <button type="button" id="copyLink">
+                Salin Link
+            </button>
+
+            <p id="pesanCopy"></p>
+        </div>
+    </div>
+</section>
 </body>
 </html>
