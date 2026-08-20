@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ian & Afifah - Wedding Invitation</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            background: #f7f4ef;
+            color: #333;
+        }
+
+        /* =========================
+           COVER
+        ========================= */
+
+        .cover {
+            height: 100vh;
+            min-height: 650px;
+            position: relative;
+            background:
+                linear-gradient(
+                    rgba(30, 25, 20, 0.48),
+                    rgba(30, 25, 20, 0.65)
+                ),
+                url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=85")
+                center/cover no-repeat;
+
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .cover-content {
+            width: 100%;
+            max-width: 1150px;
+            margin: auto;
+            padding: 50px;
+        }
+
+        .small-title {
+            font-size: 15px;
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .cover h1 {
+            font-size: clamp(55px, 8vw, 105px);
+            font-weight: 400;
+            line-height: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .quote {
+            max-width: 850px;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 35px;
+        }
+
+        .guest-label {
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .guest-name {
+            font-size: 27px;
+            letter-spacing: 1px;
+            margin-bottom: 35px;
+        }
+
+        .open-button {
+            display: inline-block;
+            padding: 15px 30px;
+            border: 1px solid rgba(255,255,255,.7);
+            border-radius: 4px;
+            color: white;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            transition: .3s;
+            cursor: pointer;
+            background: rgba(255,255,255,.08);
+        }
+
+        .open-button:hover {
+            background: white;
+            color: #333;
+        }
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        #content {
+            display: none;
+        }
+
+        section {
+            padding: 90px 25px;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            font-weight: 400;
+            margin-bottom: 18px;
+        }
+
+        .section-line {
+            width: 60px;
+            height: 1px;
+            background: #777;
+            margin: 0 auto 45px;
+        }
+
+        /* =========================
+           COUPLE
+        ========================= */
+
+        .couple {
+            background: #fff;
+        }
+
+        .couple-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+        }
+
+        .person {
+            text-align: center;
+        }
+
+        .person img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            margin-bottom: 25px;
+        }
+
+        .person h3 {
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .person p {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           STORY
+        ========================= */
+
+        .story {
+            background: #eee8df;
+        }
+
+        .story-content {
+            max-width: 750px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .story-content p {
+            font-family: Arial, sans-serif;
+            line-height: 1.9;
+            font-size: 15px;
+        }
+
+        /* =========================
+           EVENT
+        ========================= */
+
+        .event {
+            background: #fff;
+        }
+
+        .event-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .event-card {
+            border: 1px solid #ddd;
+            padding: 45px 25px;
+            text-align: center;
+        }
+
+        .event-card h3 {
+            font-size: 27px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .event-card p {
+            font-family: Arial, sans-serif;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .maps-button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 13px 25px;
+            border: 1px solid #555;
+            color: #333;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+        }
+
+        /* =========================
+           COUNTDOWN
+        ========================= */
+
+        .countdown {
+            background: #29251f;
+            color: white;
+            text-align: center;
+        }
+
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .count-number {
+            font-size: 42px;
+            margin-bottom: 8px;
+        }
+
+        .count-label {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* =========================
+           GALLERY
+        ========================= */
+
+        .gallery {
+            background: #f7f4ef;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+        }
+
+        /* =========================
+           RSVP
+        ========================= */
+
+        .rsvp {
+            background: white;
+            text-align: center;
+        }
+
+        .wa-button {
+            display: inline-block;
+            padding: 16px 35px;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            border-radius: 3px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #29251f;
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        footer h2 {
+            font-size: 42px;
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media(max-width: 700px) {
+
+            .cover-content {
+                padding: 30px;
+            }
+
+            .cover h1 {
+                font-size: 58px;
+            }
+
+            .couple-grid,
+            .event-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .person img {
+                height: 430px;
+            }
+
+            .countdown-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery-grid img {
+                height: 220px;
+            }
+
+            section {
+                padding: 70px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         COVER
+    ========================== -->
+
+    <div class="cover">
+
+        <div class="cover-content">
+
+            <div class="small-title">
+                Our Wedding Invitation
+            </div>
+
+            <h1>
+                Ian<br>
+                &amp; Afifah
+            </h1>
+
+            <p class="quote">
+                “What counts in making a happy marriage is not so much
+                how compatible you are, but how you deal with incompatibility.”
+            </p>
+
+            <p class="guest-label">
+                Kepada Yth. Bapak / Ibu / Saudara/i
+            </p>
+
+            <div class="guest-name" id="guestName">
+                NAMA TAMU
+            </div>
+
+            <button class="open-button" onclick="openInvitation()">
+                BUKA UNDANGAN
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         ISI UNDANGAN
+    ========================== -->
+
+    <div id="content">
+
+        <!-- COUPLE -->
+
+        <section class="couple">
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    Mempelai
+                </h2>
+
+                <div class="section-line"></div>
+
+                <div class="couple-grid">
+
+                    <div class="person">
+
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80">
+
+                        <h3>Ian</h3>
+
+                        <p>
+                            Putra dari<br>
+                            Bapak Nama Ayah<br>
+                            &amp; Ibu Nama Ibu
+                        </p>
+
+                    </div>
+
+
+                    <div class="person">
+
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80">
+
+                        <h3>Afifah</h3>
+
+                        <p>
+                            Putri dari<br>
+                            Bapak Nama Ayah<br>
+                            &amp; Ibu Nama Ibu
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- STORY -->
+
+        <section class="story">
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    Our Story
+                </h2>
+
+                <div class="section-line"></div>
+
+                <div class="story-content">
+
+                    <p>
+                        Setiap perjalanan memiliki cerita.
+                        Begitu pula dengan perjalanan kami.
+                        Berawal dari sebuah pertemuan sederhana,
+                        kemudian tumbuh menjadi sebuah kisah yang
+                        membawa kami sampai pada hari istimewa ini.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- EVENT -->
+
+        <section class="event">
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    Detail Acara
+                </h2>
+
+                <div class="section-line"></div>
+
+                <div class="event-grid">
+
+                    <div class="event-card">
+
+                        <h3>Akad Nikah</h3>
+
+                        <p>
+                            Minggu<br>
+                            20 Desember 2026<br><br>
+                            09.00 WITA<br><br>
+                            Tempat Acara<br>
+                            Alamat Lengkap
+                        </p>
+
+                        <a class="maps-button"
+                           href="https://maps.google.com"
+                           target="_blank">
+                            Lihat Lokasi
+                        </a>
+
+                    </div>
+
+
+                    <div class="event-card">
+
+                        <h3>Resepsi</h3>
+
+                        <p>
+                            Minggu<br>
+                            20 Desember 2026<br><br>
+                            11.00 WITA - selesai<br><br>
+                            Tempat Acara<br>
+                            Alamat Lengkap
+                        </p>
+
+                        <a class="maps-button"
+                           href="https://maps.google.com"
+                           target="_blank">
+                            Lihat Lokasi
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- COUNTDOWN -->
+
+        <section class="countdown">
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    Menuju Hari Bahagia
+                </h2>
+
+                <div class="section-line"></div>
+
+                <div class="countdown-grid">
+
+                    <div>
+                        <div class="count-number" id="days">0</div>
+                        <div class="count-label">Hari</div>
+                    </div>
+
+                    <div>
+                        <div class="count-number" id="hours">0</div>
+                        <div class="count-label">Jam</div>
+                    </div>
+
+                    <div>
+                        <div class="count-number" id="minutes">0</div>
+                        <div class="count-label">Menit</div>
+                    </div>
+
+                    <div>
+                        <div class="count-number" id="seconds">0</div>
+                        <div class="count-label">Detik</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- GALLERY -->
+
+        <section class="gallery">
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    Our Gallery
+                </h2>
+
+                <div class="section-line"></div>
+
+                <div class="gallery-grid">
+
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=80">
+
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=80">
+
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80">
+
+                    <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=900&q=80">
+
+                    <img src="https://images.unsplash.com/photo-1513278974582-3e1b4a4fa1c5?auto=format&fit=crop&w=900&q=80">
+
+                    <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=900&q=80">
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RSVP -->
+
+        <section class="rsvp">
+
+            <div class="container">
+
+                <h2 class="section-title">
+                    Konfirmasi Kehadiran
+                </h2>
+
+                <div class="section-line"></div>
+
+                <p style="font-family:Arial; margin-bottom:30px;">
+                    Mohon konfirmasi kehadiran Anda melalui WhatsApp.
+                </p>
+
+                <a class="wa-button"
+                   href="https://wa.me/6281234567890"
+                   target="_blank">
+                    Konfirmasi via WhatsApp
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <h2>
+                Ian &amp; Afifah
+            </h2>
+
+            <p>
+                Terima kasih atas doa dan restunya.
+            </p>
+
+        </footer>
+
+    </div>
+
+
+    <script>
+
+        /* =========================
+           NAMA TAMU DARI URL
+        ========================== */
+
+        const params = new URLSearchParams(window.location.search);
+
+        const guest = params.get("to");
+
+        if (guest) {
+            document.getElementById("guestName").textContent =
+                decodeURIComponent(guest.replace(/\+/g, " "));
+        }
+
+
+        /* =========================
+           BUKA UNDANGAN
+        ========================== */
+
+        function openInvitation() {
+
+            document.querySelector(".cover").style.display = "none";
+
+            document.getElementById("content").style.display = "block";
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+
+        /* =========================
+           COUNTDOWN
+        ========================== */
+
+        const weddingDate =
+            new Date("December 20, 2026 09:00:00").getTime();
+
+        setInterval(function() {
+
+            const now = new Date().getTime();
+
+            const distance = weddingDate - now;
+
+            const days =
+                Math.floor(distance / (1000 * 60 * 60 * 24));
+
+            const hours =
+                Math.floor(
+                    (distance % (1000 * 60 * 60 * 24))
+                    / (1000 * 60 * 60)
+                );
+
+            const minutes =
+                Math.floor(
+                    (distance % (1000 * 60 * 60))
+                    / (1000 * 60)
+                );
+
+            const seconds =
+                Math.floor(
+                    (distance % (1000 * 60))
+                    / 1000
+                );
+
+            document.getElementById("days").innerText =
+                Math.max(days, 0);
+
+            document.getElementById("hours").innerText =
+                Math.max(hours, 0);
+
+            document.getElementById("minutes").innerText =
+                Math.max(minutes, 0);
+
+            document.getElementById("seconds").innerText =
+                Math.max(seconds, 0);
+
+        }, 1000);
+
+    </script>
+
+</body>
+</html>
