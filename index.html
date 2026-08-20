@@ -1123,9 +1123,14 @@ const music = document.getElementById('weddingMusic');
 const bukaUndangan = document.querySelector('.btn');
 
 bukaUndangan.addEventListener('click', function () {
-    music.play().catch(function(error) {
-        console.log("Musik tidak dapat diputar:", error);
-    });
+    music.volume = 0.8;
+    music.play()
+        .then(function () {
+            console.log("Musik berhasil diputar");
+        })
+        .catch(function (error) {
+            console.log("Musik gagal diputar:", error);
+        });
 });
 </script>
 </body>
