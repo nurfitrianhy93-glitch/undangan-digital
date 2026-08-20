@@ -1132,6 +1132,14 @@ bukaUndangan.addEventListener('click', function () {
             console.log("Musik gagal diputar:", error);
         });
 });
+
+    // Nama tamu dari URL
+const params = new URLSearchParams(window.location.search);
+const namaTamu = params.get('to');
+
+if (namaTamu) {
+    document.getElementById('guestName').textContent = namaTamu;
+}
 </script>
 </body>
 </html>
