@@ -550,6 +550,9 @@ section{
 </head>
 
 <body>
+<audio id="weddingMusic" loop>
+    <source src="lagu.mp3" type="audio/mpeg">
+</audio>
 
 <!-- =========================
      COVER
@@ -1116,8 +1119,17 @@ function copyAccount(){
     });
 
 }
+const music = document.getElementById('weddingMusic');
+const bukaUndangan = document.querySelector('.btn');
 
+bukaUndangan.addEventListener('click', function () {
+    music.play().catch(function(error) {
+        console.log("Musik tidak dapat diputar:", error);
+    });
+});
 </script>
-
+<audio id="weddingMusic" loop>
+    <source src="lagu-pernikahan.mp3" type="audio/mpeg">
+</audio>
 </body>
 </html>
