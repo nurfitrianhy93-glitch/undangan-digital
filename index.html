@@ -1301,5 +1301,97 @@ copyLink.addEventListener('click', function () {
     <audio id="weddingMusic" loop>
     <source src="wedding.mp3" type="audio/mpeg">
 </audio>
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    // ==============================
+    // NAMA TAMU DARI LINK
+    // ==============================
+
+    const params = new URLSearchParams(window.location.search);
+    const namaTamu = params.get('to');
+
+    const guestName = document.getElementById('guestName');
+
+    if (namaTamu && guestName) {
+        guestName.textContent = namaTamu;
+    }
+
+
+    // ==============================
+    // LINK GENERATOR
+    // ==============================
+
+    const namaInput = document.getElementById('namaTamuInput');
+    const generateLink = document.getElementById('generateLink');
+    const linkTamu = document.getElementById('linkTamu');
+    const hasilLink = document.getElementById('hasilLink');
+    const copyLink = document.getElementById('copyLink');
+    const pesanCopy = document.getElementById('pesanCopy');
+
+
+    // Tombol Buat Link
+    if (generateLink) {
+
+        generateLink.addEventListener('click', function () {
+
+            const nama = namaInput.value.trim();
+
+            if (!nama) {
+                alert('Silakan masukkan nama tamu terlebih dahulu.');
+                namaInput.focus();
+                return;
+            }
+
+            const url = new URL(window.location.href);
+
+            url.searchParams.set('to', nama);
+            url.hash = 'intro';
+
+            const link = url.toString();
+
+            linkTamu.value = link;
+            hasilLink.style.display = 'block';
+
+            pesanCopy.textContent =
+                'Link berhasil dibuat. Silakan salin dan kirim kepada tamu.';
+
+        });
+
+    }
+
+
+    // Tombol Salin Link
+    if (copyLink) {
+
+        copyLink.addEventListener('click', function () {
+
+            if (!linkTamu.value) {
+                return;
+            }
+
+            navigator.clipboard.writeText(linkTamu.value)
+                .then(function () {
+
+                    pesanCopy.textContent =
+                        '✓ Link berhasil disalin!';
+
+                })
+                .catch(function () {
+
+                    linkTamu.select();
+                    document.execCommand('copy');
+
+                    pesanCopy.textContent =
+                        '✓ Link berhasil disalin!';
+
+                });
+
+        });
+
+    }
+
+});
+</script>
 </body>
 </html>
