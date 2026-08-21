@@ -2100,71 +2100,57 @@ Lihat Lokasi di Google Maps
             doa restu pada hari bahagia kami.
         </p>
 
-        <div class="rsvp-form">
+   <div class="rsvp-form">
 
-          <!-- NAMA -->
-<input
-    type="text"
-    id="rsvpNama"
-    placeholder="Nama Anda"
->
+    <!-- NAMA -->
+    <div class="rsvp-field">
+        <label for="rsvpNama">Nama</label>
+        <input
+            type="text"
+            id="rsvpNama"
+            placeholder="Nama Anda"
+        >
+    </div>
 
-<!-- UCAPAN & DOA -->
-<textarea
-    id="rsvpUcapan"
-    rows="4"
-    placeholder="Tulis ucapan dan doa..."
-></textarea>
+    <!-- UCAPAN & DOA -->
+    <div class="rsvp-field">
+        <label for="rsvpUcapan">Ucapan & Doa</label>
+        <textarea
+            id="rsvpUcapan"
+            rows="4"
+            placeholder="Tulis ucapan dan doa..."
+        ></textarea>
+    </div>
 
-<!-- KONFIRMASI KEHADIRAN -->
-<div class="rsvp-confirm-title">
-    Konfirmasi Kehadiran
-</div>
+    <!-- KONFIRMASI KEHADIRAN -->
+    <div class="rsvp-confirm-title">
+        Konfirmasi Kehadiran
+    </div>
 
-<div class="rsvp-row">
+    <div class="rsvp-row">
 
-    <select id="rsvpStatus">
-        <option value="Hadir">Hadir</option>
-        <option value="Tidak Hadir">Tidak Hadir</option>
-    </select>
+        <select id="rsvpStatus">
+            <option value="Hadir">Hadir</option>
+            <option value="Tidak Hadir">Tidak Hadir</option>
+        </select>
 
-    <select id="rsvpJumlah">
-        <option value="1">1 Tamu</option>
-        <option value="2">2 Tamu</option>
-    </select>
-
-</div>
-
-<!-- TOMBOL -->
-<button
-    type="button"
-    class="rsvp-submit"
-    onclick="kirimRSVP()"
->
-    KIRIM KONFIRMASI
-</button>
-
-            </div>
-
-            <!-- UCAPAN -->
-            <textarea
-                id="rsvpUcapan"
-                rows="4"
-                placeholder="Tulis ucapan dan doa..."
-            ></textarea>
-
-            <!-- TOMBOL -->
-            <button
-                type="button"
-                class="rsvp-submit"
-                onclick="kirimRSVP()"
-            >
-                KIRIM KONFIRMASI
-            </button>
-
-        </div>
+        <select id="rsvpJumlah">
+            <option value="1">1 Tamu</option>
+            <option value="2">2 Tamu</option>
+        </select>
 
     </div>
+
+    <!-- TOMBOL -->
+    <button
+        type="button"
+        class="rsvp-submit"
+        onclick="kirimRSVP()"
+    >
+        KIRIM KONFIRMASI
+    </button>
+
+</div>
 
 </section>
 
