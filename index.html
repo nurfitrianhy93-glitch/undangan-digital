@@ -1266,7 +1266,7 @@ copyLink.addEventListener('click', function () {
 });
 </script>
     <!-- LINK GENERATOR -->
-<section class="link-generator">
+<section class="link-generator" id="linkGeneratorSection">
     <div class="generator-box">
         <div class="generator-title">Buat Link Undangan</div>
         <p class="generator-subtitle">
@@ -1310,6 +1310,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const params = new URLSearchParams(window.location.search);
     const namaTamu = params.get('to');
+    const generator = document.getElementById('linkGeneratorSection');
+
+if (namaTamu && generator) {
+    generator.style.display = 'none';
+}
 
     const guestName = document.getElementById('guestName');
 
