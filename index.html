@@ -18,6 +18,10 @@
 html{
     scroll-behavior:smooth;
 }
+    html.lock-scroll,
+body.lock-scroll {
+    overflow: hidden;
+}
 
 body{
     font-family:'Montserrat',sans-serif;
@@ -25,7 +29,19 @@ body{
     color:#3d3935;
     line-height:1.7;
 }
+/* Kunci scroll sebelum tombol Buka Undangan diklik */
+html.lock-scroll,
+body.lock-scroll {
+    overflow: hidden !important;
+    height: 100%;
+}
 
+/* Setelah undangan dibuka */
+html.unlock-scroll,
+body.unlock-scroll {
+    overflow-y: auto;
+    height: auto;
+}
 h1,h2,h3{
     font-family:'Cormorant Garamond',serif;
     font-weight:500;
@@ -665,7 +681,7 @@ Kepada Bapak / Ibu / Saudara/i
 Tamu Undangan
 </div>
 
-<a href="#intro" class="btn">
+<button id="bukaUndangan" class="btn" onclick="openInvitation()">
 Buka Undangan
 </a>
 
@@ -863,8 +879,7 @@ Minggu, 20 September 2026
 
 <div class="event-place">
 <strong>Gedung Seni dan Budaya Narmada</strong><br><br>
-Jl. Raya Suranadi / Jl. Raya Mataram -
-Labuhan Lombok, Lembuak,
+Jl. Raya Suranadi, Lembuak,
 Kec. Narmada, Kabupaten Lombok Barat,
 Nusa Tenggara Barat.
 </div>
@@ -886,8 +901,7 @@ Minggu, 20 September 2026
 
 <div class="event-place">
 <strong>Gedung Seni dan Budaya Narmada</strong><br><br>
-Jl. Raya Suranadi / Jl. Raya Mataram -
-Labuhan Lombok, Lembuak,
+Jl. Raya Suranadi, Lembuak,
 Kec. Narmada, Kabupaten Lombok Barat,
 Nusa Tenggara Barat.
 </div>
@@ -1303,7 +1317,11 @@ copyLink.addEventListener('click', function () {
 </audio>
     <script>
 document.addEventListener('DOMContentLoaded', function () {
-
+ // ==============================
+    // KUNCI SCROLL SEBELUM BUKA
+    // ==============================
+    document.documentElement.classList.add('lock-scroll');
+    document.body.classList.add('lock-scroll');
     // ==============================
     // NAMA TAMU DARI LINK
     // ==============================
