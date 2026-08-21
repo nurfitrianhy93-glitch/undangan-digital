@@ -681,9 +681,9 @@ Kepada Bapak / Ibu / Saudara/i
 Tamu Undangan
 </div>
 
-<button id="bukaUndangan" class="btn" onclick="openInvitation()">
-Buka Undangan
-</a>
+<button id="bukaUndangan" class="btn">
+    Buka Undangan
+</button>
 
 </div>
 </section>
@@ -1317,11 +1317,12 @@ copyLink.addEventListener('click', function () {
 </audio>
     <script>
 document.addEventListener('DOMContentLoaded', function () {
- // ==============================
+  // ==============================
     // KUNCI SCROLL SEBELUM BUKA
     // ==============================
-    document.documentElement.classList.add('lock-scroll');
-    document.body.classList.add('lock-scroll');
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+
     // ==============================
     // NAMA TAMU DARI LINK
     // ==============================
@@ -1340,7 +1341,41 @@ if (namaTamu && generator) {
         guestName.textContent = namaTamu;
     }
 
+// ==============================
+// TOMBOL BUKA UNDANGAN
+// ==============================
+const bukaUndangan = document.getElementById('bukaUndangan');
 
+if (bukaUndangan) {
+
+    bukaUndangan.addEventListener('click', function () {
+
+        // Buka scroll
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+
+        // Jalankan musik setelah klik
+        const music = document.getElementById('weddingMusic');
+
+        if (music) {
+            music.play().catch(function(error) {
+                console.log('Musik gagal diputar:', error);
+            });
+        }
+
+        // Masuk ke halaman Intro
+        const intro = document.getElementById('intro');
+
+        if (intro) {
+            intro.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+    });
+
+}
     // ==============================
     // LINK GENERATOR
     // ==============================
