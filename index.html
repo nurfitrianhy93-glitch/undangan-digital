@@ -643,126 +643,206 @@ section{
    ========================================= */
 
 :root {
-    --ivory: #f8f5ef;
-    --cream: #eee7da;
-    --champagne: #c8aa72;
-    --gold-soft: #d8c39a;
-    --sage: #66715f;
-    --dark: #3d3935;
-    --white-soft: rgba(255,255,255,.72);
+     --elegant-bg: #f8f5ef;
+    --elegant-cream: #eee7da;
+    --elegant-gold: #b49a6a;
+    --elegant-gold-soft: #d8c7a5;
+    --elegant-dark: #403b35;
+    --elegant-text: #514b44;
 }
 
-/* Background keseluruhan */
+/* LATAR BELAKANG */
 body {
     background:
-        radial-gradient(circle at 10% 10%, rgba(200,170,114,.10), transparent 28%),
-        radial-gradient(circle at 90% 30%, rgba(102,113,95,.08), transparent 30%),
-        var(--ivory);
+       radial-gradient(circle at 10% 10%, rgba(180,154,106,.10), transparent 25%),
+        radial-gradient(circle at 90% 20%, rgba(180,154,106,.08), transparent 28%),
+        linear-gradient(135deg, #f8f5ef, #eee7da);
 }
 
-/* Semua section */
+/* SETIAP SECTION */
 section {
     position: relative;
     overflow: hidden;
 }
 
-/* Ornamen tipis pada section */
+/* ORNAMEN HALUS DI SECTION */
 section::before {
     content: "";
     position: absolute;
-    width: 180px;
-    height: 180px;
-    border: 1px solid rgba(200,170,114,.18);
+    width: 220px;
+    height: 220px;
+    border: 1px solid rgba(180,154,106,.20);
     border-radius: 50%;
-    top: -90px;
-    right: -90px;
+    top: -100px;
+    left: -100px;
     pointer-events: none;
 }
 
 section::after {
     content: "";
     position: absolute;
-    width: 120px;
-    height: 120px;
-    border: 1px solid rgba(102,113,95,.12);
+    width: 180px;
+    height: 180px;
+    border: 1px solid rgba(180,154,106,.16);
     border-radius: 50%;
-    bottom: -60px;
-    left: -60px;
+    right: -90px;
+    bottom: -90px;
     pointer-events: none;
 }
 
-/* Judul section */
-section h2 {
-    color: var(--dark);
-    letter-spacing: 2px;
+/* COVER DEPAN */
+.cover {
     position: relative;
-    display: inline-block;
+    background:
+        linear-gradient(
+            rgba(48,43,37,.78),
+            rgba(48,43,37,.88)
+        ),
+        radial-gradient(
+            circle at center,
+            rgba(180,154,106,.20),
+            transparent 65%
+        ) !important;
 }
 
-section h2::after {
-    content: "✦";
-    display: block;
-    font-family: serif;
-    font-size: 14px;
-    color: var(--champagne);
-    margin-top: 8px;
+/* GARIS ELEGAN PADA COVER */
+.cover::before {
+    content: "";
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    border: 1px solid rgba(216,199,165,.35);
+    border-radius: 50%;
+    top: -80px;
+    right: -80px;
 }
 
-/* Nama mempelai */
-.hero h1,
-.cover h1 {
-    letter-spacing: 3px;
-    line-height: 1.05;
-    text-shadow: 0 2px 15px rgba(0,0,0,.08);
+.cover::after {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border: 1px solid rgba(216,199,165,.25);
+    border-radius: 50%;
+    bottom: -60px;
+    left: -60px;
+}
+/* ISI COVER */
+.cover-content {
+    position: relative;
+    z-index: 2;
 }
 
-/* Tulisan kecil */
-.hero p,
-.cover p {
-    letter-spacing: 1.5px;
+/* JUDUL */
+.cover h1,
+.cover h2,
+.cover h3 {
+    text-shadow: 0 3px 15px rgba(0,0,0,.25);
+}
+/* NAMA MEMPELAI */
+.cover .couple-name,
+.cover .names {
+    letter-spacing: 4px;
 }
 
-/* Tombol */
+/* LABEL KECIL */
+.small-title {
+    letter-spacing: 5px !important;
+    text-transform: uppercase;
+    color: #d8c7a5 !important;
+
+/* TOMBOL */
 .btn {
     position: relative;
-    z-index: 99999;
-    border: 1px solid var(--champagne) !important;
-    background: rgba(255,255,255,.16) !important;
-    color: inherit !important;
-    letter-spacing: 2px;
-    padding: 13px 28px !important;
-    border-radius: 50px !important;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.65) !important;
+    background: rgba(255,255,255,.05) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all .35s ease !important;
     box-shadow:
-        0 8px 25px rgba(61,57,53,.10),
-        inset 0 0 0 1px rgba(255,255,255,.25);
-    transition: all .35s ease;
-    backdrop-filter: blur(5px);
+        0 8px 25px rgba(0,0,0,.12),
+        inset 0 0 0 1px rgba(255,255,255,.08);
 }
 
 .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(61,57,53,.16);
-    background: rgba(200,170,114,.14) !important;
+    background: rgba(180,154,106,.22) !important;
+    border-color: #d8c7a5 !important;
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.20);
 }
 
-/* Card acara / informasi */
+.btn:active {
+    transform: translateY(0);
+}
+/* JUDUL SECTION */
+.section-title {
+    position: relative;
+    display: inline-block;
+    color: var(--elegant-dark);
+    letter-spacing: 1px;
+}
+
+/* GARIS DI BAWAH JUDUL */
+.section-title::after {
+    content: "";
+    display: block;
+    width: 55px;
+    height: 1px;
+    margin: 18px auto 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--elegant-gold),
+        transparent
+    );
+}
+
+/* LABEL SECTION */
+.section-label {
+    letter-spacing: 5px !important;
+    color: var(--elegant-gold) !important;
+    text-transform: uppercase;
+}
+ /* TEKS */
+section p {
+    color: var(--elegant-text);
+}   
+/* KARTU ACARA */
 .event-card {
-    background: var(--white-soft) !important;
-    border: 1px solid rgba(200,170,114,.28) !important;
-    border-radius: 22px !important;
-    box-shadow: 0 12px 35px rgba(61,57,53,.08) !important;
+    position: relative;
+    background: rgba(255,255,255,.62) !important;
+    border: 1px solid rgba(180,154,106,.28) !important;
+    border-radius: 18px !important;
+    box-shadow:
+        0 10px 30px rgba(64,59,53,.08),
+        inset 0 1px 0 rgba(255,255,255,.8);
     backdrop-filter: blur(8px);
-    transition: transform .35s ease, box-shadow .35s ease;
+    -webkit-backdrop-filter: blur(8px);
+    transition: transform .3s ease, box-shadow .3s ease;
 }
 
 .event-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 18px 40px rgba(61,57,53,.13) !important;
+    box-shadow:
+        0 18px 35px rgba(64,59,53,.13);
 }
 
-.event-card h3 {
-    color: var(--sage);
-    letter-spacing: 1.5px;
+/* GARIS DEKORASI KARTU */
+.event-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 15%;
+    right: 15%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--elegant-gold-soft),
+        transparent
+    );
 }
 
 /* Garis pemisah elegan */
@@ -804,39 +884,78 @@ section h2::after {
     box-shadow: 0 15px 35px rgba(61,57,53,.18);
 }
 
-/* Countdown */
+/* COUNTDOWN */
 .countdown {
-    gap: 12px;
+    position: relative;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.65),
+            rgba(238,231,218,.75)
+        ) !important;
+    border: 1px solid rgba(180,154,106,.25);
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(64,59,53,.08);
 }
 
-.countdown > div {
+/* ANGKA COUNTDOWN */
+.countdown-number,
+.countdown span {
+    color: var(--elegant-dark);
+}
+
+/* FORM GENERATOR */
+.link-generator {
     background: rgba(255,255,255,.65) !important;
-    border: 1px solid rgba(200,170,114,.25);
-    border-radius: 16px;
-    box-shadow: 0 8px 25px rgba(61,57,53,.07);
-    backdrop-filter: blur(6px);
+    border: 1px solid rgba(180,154,106,.25);
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(64,59,53,.08);
 }
 
-.countdown strong {
-    color: var(--sage);
-}
-
-/* Form / input */
+/* INPUT */
 input,
-textarea,
-select {
-    border: 1px solid rgba(200,170,114,.35) !important;
-    border-radius: 12px !important;
-    background: rgba(255,255,255,.7) !important;
-    outline: none;
-    transition: border-color .25s ease, box-shadow .25s ease;
+textarea {
+    border: 1px solid rgba(180,154,106,.35) !important;
+    border-radius: 10px !important;
+    background: rgba(255,255,255,.75) !important;
+    transition: all .3s ease;
 }
 
 input:focus,
-textarea:focus,
-select:focus {
-    border-color: var(--champagne) !important;
-    box-shadow: 0 0 0 3px rgba(200,170,114,.10);
+textarea:focus {
+    outline: none;
+    border-color: var(--elegant-gold) !important;
+    box-shadow: 0 0 0 3px rgba(180,154,106,.12);
+}
+/* GARIS PEMISAH */
+hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(180,154,106,.45),
+        transparent
+    );
+}
+
+/* EFEK FADE */
+@keyframes elegantFade {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-label,
+.section-title,
+.event-card {
+    animation: elegantFade .9s ease both;
 }
 
 /* Link generator */
@@ -864,22 +983,36 @@ select:focus {
     animation: elegantFade 1.2s ease both;
 }
 
-/* Mobile */
+/* MOBILE */
 @media (max-width: 600px) {
 
-    section h2 {
-        letter-spacing: 1.5px;
+    .cover::before {
+        width: 120px;
+        height: 120px;
+        top: -60px;
+        right: -60px;
     }
 
-    .btn {
-        padding: 12px 24px !important;
-        font-size: 13px;
+    .cover::after {
+        width: 90px;
+        height: 90px;
+        bottom: -45px;
+        left: -45px;
+    }
+
+    .section-title {
+        letter-spacing: .5px;
+    }
+
+    .section-label {
+        letter-spacing: 3px !important;
     }
 
     .event-card {
-        border-radius: 18px !important;
+        border-radius: 15px !important;
     }
 }
+    /* KODE ELEGAN BARU DI SINI */
 </style>
 </head>
 
