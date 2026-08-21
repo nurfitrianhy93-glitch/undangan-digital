@@ -638,6 +638,248 @@ section{
     font-size: 13px;
     margin-top: 12px;
 }
+    /* =========================================
+   ELEGANT WEDDING DESIGN - ARDIAN & PUTRI
+   ========================================= */
+
+:root {
+    --ivory: #f8f5ef;
+    --cream: #eee7da;
+    --champagne: #c8aa72;
+    --gold-soft: #d8c39a;
+    --sage: #66715f;
+    --dark: #3d3935;
+    --white-soft: rgba(255,255,255,.72);
+}
+
+/* Background keseluruhan */
+body {
+    background:
+        radial-gradient(circle at 10% 10%, rgba(200,170,114,.10), transparent 28%),
+        radial-gradient(circle at 90% 30%, rgba(102,113,95,.08), transparent 30%),
+        var(--ivory);
+}
+
+/* Semua section */
+section {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ornamen tipis pada section */
+section::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border: 1px solid rgba(200,170,114,.18);
+    border-radius: 50%;
+    top: -90px;
+    right: -90px;
+    pointer-events: none;
+}
+
+section::after {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border: 1px solid rgba(102,113,95,.12);
+    border-radius: 50%;
+    bottom: -60px;
+    left: -60px;
+    pointer-events: none;
+}
+
+/* Judul section */
+section h2 {
+    color: var(--dark);
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+}
+
+section h2::after {
+    content: "✦";
+    display: block;
+    font-family: serif;
+    font-size: 14px;
+    color: var(--champagne);
+    margin-top: 8px;
+}
+
+/* Nama mempelai */
+.hero h1,
+.cover h1 {
+    letter-spacing: 3px;
+    line-height: 1.05;
+    text-shadow: 0 2px 15px rgba(0,0,0,.08);
+}
+
+/* Tulisan kecil */
+.hero p,
+.cover p {
+    letter-spacing: 1.5px;
+}
+
+/* Tombol */
+.btn {
+    position: relative;
+    z-index: 99999;
+    border: 1px solid var(--champagne) !important;
+    background: rgba(255,255,255,.16) !important;
+    color: inherit !important;
+    letter-spacing: 2px;
+    padding: 13px 28px !important;
+    border-radius: 50px !important;
+    box-shadow:
+        0 8px 25px rgba(61,57,53,.10),
+        inset 0 0 0 1px rgba(255,255,255,.25);
+    transition: all .35s ease;
+    backdrop-filter: blur(5px);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(61,57,53,.16);
+    background: rgba(200,170,114,.14) !important;
+}
+
+/* Card acara / informasi */
+.event-card {
+    background: var(--white-soft) !important;
+    border: 1px solid rgba(200,170,114,.28) !important;
+    border-radius: 22px !important;
+    box-shadow: 0 12px 35px rgba(61,57,53,.08) !important;
+    backdrop-filter: blur(8px);
+    transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 40px rgba(61,57,53,.13) !important;
+}
+
+.event-card h3 {
+    color: var(--sage);
+    letter-spacing: 1.5px;
+}
+
+/* Garis pemisah elegan */
+.divider {
+    position: relative;
+    width: 100px;
+    height: 1px;
+    background: var(--champagne);
+    margin: 20px auto;
+}
+
+.divider::before,
+.divider::after {
+    content: "◆";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 7px;
+    color: var(--champagne);
+}
+
+.divider::before {
+    left: -15px;
+}
+
+.divider::after {
+    right: -15px;
+}
+
+/* Galeri */
+.gallery img {
+    border-radius: 16px !important;
+    box-shadow: 0 10px 25px rgba(61,57,53,.10);
+    transition: transform .4s ease, box-shadow .4s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.025);
+    box-shadow: 0 15px 35px rgba(61,57,53,.18);
+}
+
+/* Countdown */
+.countdown {
+    gap: 12px;
+}
+
+.countdown > div {
+    background: rgba(255,255,255,.65) !important;
+    border: 1px solid rgba(200,170,114,.25);
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(61,57,53,.07);
+    backdrop-filter: blur(6px);
+}
+
+.countdown strong {
+    color: var(--sage);
+}
+
+/* Form / input */
+input,
+textarea,
+select {
+    border: 1px solid rgba(200,170,114,.35) !important;
+    border-radius: 12px !important;
+    background: rgba(255,255,255,.7) !important;
+    outline: none;
+    transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--champagne) !important;
+    box-shadow: 0 0 0 3px rgba(200,170,114,.10);
+}
+
+/* Link generator */
+.link-generator {
+    background: rgba(255,255,255,.55) !important;
+    border: 1px solid rgba(200,170,114,.25) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 15px 40px rgba(61,57,53,.07);
+}
+
+/* Efek masuk lembut */
+@keyframes elegantFade {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero,
+.cover {
+    animation: elegantFade 1.2s ease both;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    section h2 {
+        letter-spacing: 1.5px;
+    }
+
+    .btn {
+        padding: 12px 24px !important;
+        font-size: 13px;
+    }
+
+    .event-card {
+        border-radius: 18px !important;
+    }
+}
 </style>
 </head>
 
@@ -980,8 +1222,7 @@ Lokasi Acara
 
 <p class="address">
 <strong>Gedung Seni dan Budaya Narmada</strong><br><br>
-Jl. Raya Suranadi / Jl. Raya Mataram -
-Labuhan Lombok, Lembuak,
+Jl. Raya Suranadi, Lembuak,
 Kec. Narmada, Kabupaten Lombok Barat,
 Nusa Tenggara Barat.
 </p>
